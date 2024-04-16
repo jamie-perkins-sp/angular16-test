@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular16-test';
+
+  subject = new Subject();
+
+  ngOnInit() {
+    this.subject.pipe(
+      takeUntilDestroyed()
+    ).subscribe(console.log)
+  }
 }
