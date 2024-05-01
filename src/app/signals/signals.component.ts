@@ -3,7 +3,7 @@ import { Component, computed, effect, signal } from '@angular/core';
 @Component({
   selector: 'app-signals',
   template: `
-    {{ fullName() }} <button (click)="setName('John')">Click</button>
+    {{ fullName() }} <button class="bg-violet-600" (click)="setName('John')">Click</button>
   `,
 })
 export class SignalsComponent {
