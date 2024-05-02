@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'angular16-test';
@@ -13,8 +13,6 @@ export class AppComponent {
   subject = new Subject();
 
   ngOnInit() {
-    this.subject.pipe(
-      takeUntilDestroyed()
-    ).subscribe(console.log)
+    this.subject.pipe(takeUntilDestroyed()).subscribe(console.log);
   }
 }
