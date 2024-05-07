@@ -12,7 +12,7 @@ export class AppComponent {
 
   subject = new Subject();
 
-  ngOnInit() {
+  constructor() {
     this.subject.pipe(takeUntilDestroyed()).subscribe(console.log);
   }
 }
