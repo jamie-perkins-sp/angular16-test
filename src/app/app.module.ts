@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { TinyPlaygroundComponent } from './tiny-playground/tiny-playground.compo
 
 @NgModule({
   declarations: [AppComponent, SignalsComponent, TinyPlaygroundComponent],
-  imports: [BrowserModule, AppRoutingModule, EditorModule],
+  imports: [BrowserModule, AppRoutingModule, EditorModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
