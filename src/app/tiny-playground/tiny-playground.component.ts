@@ -25,17 +25,18 @@ export class TinyPlaygroundComponent {
       editor.on('remove', () => {
         console.log(editor.id, 'remove');
       });
+      const baseRgx = /(\#((foreach|if|elseif|else|set|end|parse|include|break|stop)|\{else\})\s?(\([!$&<>{}.=-\w\s\(\)\"]+\))?)/g;
+
       editor.on('BeforeSetContent', (e) => {
         // comment all velocity tags
-        console.log('set content:', e.content)
-        const rgx = new RegExp(/(\#(foreach|if|set|end|else)\s?(\([-\w$\s{}.=\(\)\"]+\))?)/g);
-        e.content = e.content.replace(rgx, '<!--$1-->');
-        console.log('after replace:', e.content);
+        e.content = e.content.replace(baseRgx, '<!--$1-->');
+        console.log('comment:', e.content);
       });
+
       editor.on('GetContent', (e) => {
         // uncomment all velocity tags
-        const rgx = new RegExp(/\<\!--(\#(foreach|if|set|end|else)\s?(\([-\w$\s{}.=\(\)\"]+\))?)--\>/g);
-        const result = e.content = e.content.replace(rgx, '$1');
+        const rgx = new RegExp(`\<\!--(${baseRgx.source})--\>`, 'g');
+        const result = e.content = e.content.replace(rgx, '$1\n');
         console.log('uncomment', result);
         e.content = result;
       });
@@ -60,6 +61,7 @@ export class TinyPlaygroundComponent {
     this.group.setValue({
       message:
         '<p>Dear user,</p>' +
+        '#if (!${searchResults.isEmpty()})' +
         '<table>' +
         '#set ($isHeader = true)' +
         '#foreach ($previewRow in ${searchResults.get($documentType).get("preview")})' +

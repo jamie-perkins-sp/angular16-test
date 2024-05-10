@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignalsComponent } from './signals/signals.component';
 import { TinyPlaygroundComponent } from './tiny-playground/tiny-playground.component';
+import { JsonAnalyzerComponent } from './json-analyzer/json-analyzer.component';
 
 @NgModule({
-  declarations: [AppComponent, SignalsComponent, TinyPlaygroundComponent],
+  declarations: [AppComponent, SignalsComponent, TinyPlaygroundComponent, JsonAnalyzerComponent],
   imports: [BrowserModule, AppRoutingModule, EditorModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
