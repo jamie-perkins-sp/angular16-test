@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Subject } from 'rxjs';
 
@@ -12,7 +13,10 @@ export class AppComponent {
 
   subject = new Subject();
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.subject.pipe(takeUntilDestroyed()).subscribe(console.log);
+    const doc = document.documentElement;
+    doc.style.setProperty('--bs-primary-rgb', '255, 193, 7');
+    doc.style.setProperty('--bs-secondary-rgb', '0, 123, 255');
   }
 }
