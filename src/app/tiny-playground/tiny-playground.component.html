@@ -1,0 +1,14 @@
+<div class="content" [formGroup]="group">
+  <editor
+    apiKey="qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc"
+    [init]="init"
+    formControlName="message"
+  />
+  <button
+    type="button"
+    class="border border-black bg-zinc-200 px-2 py-1 rounded-md my-6"
+    (click)="submit()"
+  >
+    Submit
+  </button>
+</div>

@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "tailwind": "tailwindcss -i ./src/styles.css  -o ./src/tailwind.css",
+    "tailwind": "tailwindcss -i ./src/styles.scss  -o ./src/tailwind.css",
     "prettier": "prettier . --write"
   },
   "private": true,
@@ -20,7 +20,9 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@tinymce/tinymce-angular": "^8.0.0",
     "rxjs": "~7.8.0",
+    "tinymce": "^7.0.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
